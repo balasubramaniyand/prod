@@ -1,0 +1,32 @@
+Driver is assuming that Chrome has crashed.)
+superset_worker       | 
+superset_worker       | 
+superset_worker       | The above exception was the direct cause of the following exception:
+superset_worker       | 
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/tasks/scheduler.py", line 87, in execute
+superset_worker       |     AsyncExecuteReportScheduleCommand(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 719, in run
+superset_worker       |     raise ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 715, in run
+superset_worker       |     ReportScheduleStateMachine(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 673, in run
+superset_worker       |     state_cls(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker       |     raise first_ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker       |     self.send()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker       |     notification_content = self._get_notification_content()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker       |     screenshot_data = self._get_screenshots()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 226, in _get_screenshots
+superset_worker       |     raise ReportScheduleScreenshotFailedError(
+superset_worker       | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Failed taking a screenshot Message: unknown error: Chrome failed to start: exited abnormally.
+superset_worker       |   (unknown error: DevToolsActivePort file doesn't exist)
+superset_worker       |   (The process started from chrome location /opt/google/chrome/google-chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+superset_worker       | 
+superset_worker       | [2024-06-13 03:15:01,596: INFO/ForkPoolWorker-8] Task reports.execute[5d7034c4-ccb2-4eb7-ba5e-8d386b53df36] succeeded in 1.5024046199396253s: None
+superset_app          | 127.0.0.1 - - [13/Jun/2024:03:15:12 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+superset_app          | 127.0.0.1 - - [13/Jun/2024:03:15:42 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+
